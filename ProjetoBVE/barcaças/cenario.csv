@@ -1,0 +1,2 @@
+id_cenario,data_inicio,horizonte,n_rep,semente,fator_demanda,n_bercos_base,taxa_carga_base,horarios_programacao,horizonte_programacao,regra_pco
+BASE,2026-01-01 00:00:00,365,1,20260,1.0,2,400,09:30;16:30,36,menor_fim_janela
