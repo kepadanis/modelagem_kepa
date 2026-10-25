@@ -1,0 +1,4 @@
+parametro,valor,estado,fonte
+t_conexao,1.5,HIPOTESE_PROVISORIA,"Premissa do grupo: conceitual v1.1 (media 1,5 h) e G112_Dados (valor adotado 1,5 h; base Costa e Mesquita 2023); nao e dado da BVE. O enunciado do Lab 09 diz que pode ser desconsiderado: conflito nao resolvido (D-05)"
+t_desconexao,1.5,HIPOTESE_PROVISORIA,"Premissa do grupo: conceitual v1.1 (media 1,5 h) e G112_Dados (valor adotado 1,5 h; base Costa e Mesquita 2023); nao e dado da BVE. O enunciado do Lab 09 diz que pode ser desconsiderado: conflito nao resolvido (D-05)"
+t_manobra_base,0.0,HIPOTESE_PROVISORIA,"Nenhum documento fornece valor (conceitual: 'Estimar'); Lab 09 diz que a atracacao pode ser desconsiderada; D-06 pendente"

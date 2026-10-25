@@ -1,0 +1,4 @@
+parametro,valor,estado,fonte
+t_conexao,0.0,HIPOTESE_PROVISORIA,"Sensibilidade: D09 'tempos de conexao e desconexao podem ser desconsiderados'"
+t_desconexao,0.0,HIPOTESE_PROVISORIA,"Sensibilidade: D09 'tempos de conexao e desconexao podem ser desconsiderados'"
+t_manobra_base,0.0,HIPOTESE_PROVISORIA,"Nenhum documento fornece valor; mesmo valor do cenario base"
