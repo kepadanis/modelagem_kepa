@@ -1,0 +1,6 @@
+# Versiones con las que se ejecutó el proyecto (Linux, Python 3.12 y 3.13). Requiere Python >= 3.12 (numpy 2.5.3).
+simpy==4.1.2
+numpy==2.5.3
+pandas==3.0.5
+nbconvert==7.17.2
+ipykernel==7.4.0

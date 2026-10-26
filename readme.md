@@ -1,7 +1,0 @@
-francisco
-
-vasco
-
-kepa
-
-iñigo
