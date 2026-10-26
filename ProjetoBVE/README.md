@@ -28,27 +28,28 @@ navios (Lab 08) ── pedido + janela de atendimento ──▶ PCO (Lab 10) ─
 ## 3. Estrutura do diretório
 
 ```text
-modelagem_kepa/
-├── .gitignore
-├── readme.md                       este arquivo
-├── requirements.txt
+raiz do repositório GitHub (G112)/
+├── .gitignore                        reglas para ignorar archivos temporales
+├── readme.md                         README principal, al mismo nivel que ProjetoBVE/
 └── ProjetoBVE/
-    ├── 10 BVE definicaoProjeto/        3 notebooks do Lab 07
-    ├── 40 BVE modeloComputacional/     Lab 08
+    ├── README.md                     documentación del proyecto BVE
+    ├── requirements.txt              dependencias Python
+    ├── 10 BVE definicaoProjeto/      3 notebooks del Lab 07
+    ├── 40 BVE modeloComputacional/   Lab 08
     │   ├── G112_D08_Modelo_Computacional_Navios.ipynb, modelo_navios.py, README.md
     │   ├── D08_2_BVE_MComp_Navios_-_Dados.md
-    │   ├── entrada/                    cenario.csv, terminais.csv, distancias.csv e cópia do .md de dados
-    │   └── saida/                      log_navios.csv
-    ├── barcaças/                       Lab 09 (arquivos soltos, sem entrada/ nem saida/)
+    │   ├── entrada/                  cenario.csv, terminais.csv, distancias.csv e cópia do .md de dados
+    │   └── saida/                    log_navios.csv
+    ├── barcaças/                     Lab 09 (arquivos soltos, sem entrada/ nem saida/)
     │   ├── G112_D09_Modelo_Computacional_Barcacas.ipynb (e .html)
     │   ├── D08_2_...Dados.md, D09_2_BVE_MComp_Barcas_-_Dados.md
     │   ├── cenario.csv, frota.csv, terminais.csv
     │   └── log_barcacas.csv
-    └── 50 BVE modeloIntegrado/         Lab 10
+    └── 50 BVE modeloIntegrado/       Lab 10
         ├── G112_D10.ipynb (e .html), README.md
-        ├── codigo/                     modelo_bve_pco.py e módulos reaproveitados
-        ├── entrada/                    cenario, terminais, frota, distancias, parametros_pco e sensibilidade/
-        └── saida/                      log_navios.csv, log_barcacas.csv, log_pedidos.csv
+        ├── codigo/                   modelo_bve_pco.py e módulos reaproveitados
+        ├── entrada/                  cenario, terminais, frota, distancias, parametros_pco e sensibilidade/
+        └── saida/                    log_navios.csv, log_barcacas.csv, log_pedidos.csv
 ```
 
 Os arquivos `nono` (pastas 10 e 40) e `barcaças/barcaças` contêm apenas uma quebra de linha e servem de marcadores de pasta.
@@ -79,8 +80,8 @@ Python **3.12 ou superior** (testado com 3.12 e 3.13; o Python 3.11 não serve c
 Os comandos `cd`, `python`, `pip` e `jupyter` são os mesmos em Linux, macOS e Windows; só muda a ativação do ambiente virtual. Em alguns sistemas o interpretador se chama `python3`. Os comandos foram testados em **Linux**; Windows e macOS não foram testados.
 
 ```bash
-git clone https://github.com/kepadanis/modelagem_kepa.git
-cd modelagem_kepa
+git clone https://github.com/kepadanis/G112.git
+cd G112
 python -m venv .venv
 source .venv/bin/activate          # Windows (PowerShell): .venv\Scripts\Activate.ps1
 pip install -r requirements.txt
