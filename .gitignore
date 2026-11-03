@@ -5,3 +5,5 @@ __pycache__/
 *.nbconvert.ipynb
 saida_execucao/
 saida_lab09/
+.DS_Store
+__MACOSX/

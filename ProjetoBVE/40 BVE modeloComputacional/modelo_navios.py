@@ -40,7 +40,7 @@ def sortear(rng, dist, p1, p2=None, p3=None):
 
 
 class Terminal:
-    def __init__(self, env, linha, sequencias):
+    def __init__(self, env, linha, fator_demanda, sequencias):
         self.id = linha["id_terminal"]
         self.classe = linha["id_classe"]
         self.n_bercos = int(linha["n_bercos"])
@@ -49,29 +49,30 @@ class Terminal:
         self.manobra = float(linha["tempo_manobra"])
         self.dist_op = linha["dist_operacao"]
         self.par_op = (linha["op_p1"], linha["op_p2"], linha["op_p3"])
-        self.prob_compra = float(linha["prob_compra"])
+        self.prob_compra = min(1.0, float(linha["prob_compra"]) * fator_demanda)
         self.dist_vol = linha["dist_volume"]
         self.par_vol = (linha["vl_p1"], linha["vl_p2"], linha["vl_p3"])
         self.bercos = simpy.Resource(env, capacity=self.n_bercos)
         self.rng_chegada, self.rng_compra, self.rng_volume, self.rng_operacao = (
             np.random.default_rng(s) for s in sequencias)
         self.N = 0
+        self.N_max = 0
         self.n_notificados = 0
         self.ocupacao_max = 0
         self.fila_max = 0
-        self.N_max = 0
 
 
 def simular(terminais, cenario, rep):
     horizonte_h = float(cenario["horizonte"]) * HORAS_POR_DIA
+    fator = float(cenario["fator_demanda"])
     env = simpy.Environment()
-    sementes = np.random.SeedSequence([int(cenario["semente"]), int(rep)]).spawn(4 * len(terminais))
+    n_fluxos = 4  # chegada, compra, volume, operação
+    sementes = np.random.SeedSequence([int(cenario["semente"]), int(rep)]).spawn(n_fluxos * len(terminais))
     term = {}
     for i, (_, linha) in enumerate(terminais.iterrows()):
-        term[linha["id_terminal"]] = Terminal(env, linha, sementes[4 * i:4 * i + 4])
+        term[linha["id_terminal"]] = Terminal(env, linha, fator, sementes[n_fluxos * i:n_fluxos * (i + 1)])
 
-    registros = []
-    todos = []
+    registros, todos = [], []
     contador = {"navios": 0}
 
     def gerador_navios(t):
@@ -120,6 +121,7 @@ def simular(terminais, cenario, rep):
         "ocupacao_max": {k: t.ocupacao_max for k, t in term.items()},
         "fila_max": {k: t.fila_max for k, t in term.items()},
         "N_max": {k: t.N_max for k, t in term.items()},
+        "N_final": {k: t.N for k, t in term.items()},
         "n_registrados": len(registros),
         "n_total_notificados": contador["navios"],
         "notificados": montar_log(todos, cenario),
